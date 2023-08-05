@@ -4,7 +4,8 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "dev": "node src/index.js"
+    "dev": "node src/index.js",
+    "update": "npx prisma db pull && npx prisma generate"
   },
   "dependencies": {
     "@prisma/client": "5.0.0",
