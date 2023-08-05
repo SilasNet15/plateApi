@@ -1,0 +1,26 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-arm64-openssl-1.1.x"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model parkschein {
+  id          Int       @id @default(autoincrement())
+  kennzeichen String    @db.Text
+  ort         String    @db.Text
+  datum       DateTime  @db.Date
+  faellig     DateTime  @db.Date
+  account     account[] @relation("accountToparkschein")
+}
+
+model account {
+  id         Int          @id @default(autoincrement())
+  username   String       @db.Text
+  password   String       @db.Text
+  admin      Boolean
+  parkschein parkschein[] @relation("accountToparkschein")
+}
