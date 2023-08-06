@@ -6,7 +6,7 @@ const cors = require("cors");
 const prisma = new PrismaClient();
 const app = express();
 
-const PORT = 3500;
+const PORT = 3300;
 
 app.use(express.json());
 
@@ -19,7 +19,7 @@ server.listen(PORT, () => console.log(`server has started on port ${PORT}`)); //
 
 // BASE OUTPUT
 app.get("/", (req, res) =>
-  res.json(`🚀 Server ready at: http://localhost:3000`)
+  res.json(`🚀 Server ready at: http://localhost:3300`)
 );
 
 app.post("/get", async (req, res) => {
